@@ -110,7 +110,7 @@ function AddContacts(firstname,lastname,address,city,state,zip,phoneNumber,email
     let contact=new Contact(firstname,lastname,address,city,state,zip,phoneNumber,email);
     contacts.push(contact);
 }
-AddContacts('BhagyaLaxm','Reddy','NagrKurnool','MBNR','TS','509215','8464096496','Bhagyalaxmi@gmail.com');
+AddContacts('BhagyaLaxmi','Reddy','NagrKurnool','NGKL','AP','509215','8464096496','Bhagyalaxmi@gmail.com');
 AddContacts('BhagyaLaxm','Reddy','NagrKurnool','MBNR','TS','509215','8464096496','Bhagyalaxmi@gmail.com');
 AddContacts('Sravani','Sabbisetti','GandhiNagar','Vijayawada','AP','500004','9874102356','sravani@gmail.com');
 console.log(contacts.toString());
@@ -161,10 +161,10 @@ function SearchCityOrState(cityOrState){
 }
 //searching with city
 console.log("searching with city");
-SearchCityOrState('BNreddy');
+SearchCityOrState('NGKL');
 //searching with state
 console.log("searching with state");
-SearchCityOrState('TS');
+SearchCityOrState('AP');
 
 //UC9 View persons by state and city
 function SearchCityOrState(cityOrState){
@@ -174,7 +174,17 @@ function SearchCityOrState(cityOrState){
 }
 //View By city
 console.log("searching with city");
-SearchCityOrState('BNreddy');
+SearchCityOrState('NGKL');
 //View By state
 console.log("searching with state");
-SearchCityOrState('TS');
+SearchCityOrState('AP');
+
+//UC10 get No.of persons by city or state
+function getCountByCity(city) {
+    return contacts.filter(x => x.city == city).reduce((countOfContact, x) => countOfContact += 1, 0);
+}
+function getCountByState(state) {
+    return contacts.filter(x => x.state == state).reduce((countOfContact, x) => countOfContact += 1, 0);
+}
+console.log("No.of contacts present in the city: " + getCountByCity("NGKL"));
+console.log("No.of contacts present in the state: " + getCountByState("TS"));
