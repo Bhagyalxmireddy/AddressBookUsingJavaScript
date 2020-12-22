@@ -108,6 +108,7 @@ function AddContacts(firstname,lastname,address,city,state,zip,phoneNumber,email
 AddContacts('BhagyaLaxm','Reddy','NagrKurnool','MBNR','TS','509215','8464096496','Bhagyalaxmi@gmail.com');
 AddContacts('Sravani','Sabbisetti','GandhiNagar','Vijayawada','AP','500004','9874102356','sravani@gmail.com');
 console.log(contacts.toString());
+
 //UC4 Editing the person details by their name
 function getContactWithName(firstname){
     for(let i = 0;i < contacts.length;i++){
@@ -128,3 +129,15 @@ if(contactindex!=-1){
 }else{
     console.log("conatct not found");
 }
+
+//UC5 Deleting the person Name
+function deleteContactByName(firstname){
+    for(let i =0;i < contacts.length; i++){
+        if(contacts[i].firstname == firstname){
+            contacts.pop(i);
+            console.log(contacts.toString());
+        }
+    }
+}
+console.log("Contact Deleted");
+deleteContactByName('Sravani');
