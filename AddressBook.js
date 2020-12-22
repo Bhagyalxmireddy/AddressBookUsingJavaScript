@@ -165,3 +165,16 @@ SearchCityOrState('BNreddy');
 //searching with state
 console.log("searching with state");
 SearchCityOrState('TS');
+
+//UC9 View persons by state and city
+function SearchCityOrState(cityOrState){
+    if(contacts.filter((p=>p.city==cityOrState)||(p=>p.state==cityOrState))){
+        console.log(contacts.toString());
+    }
+}
+//View By city
+console.log("searching with city");
+SearchCityOrState('BNreddy');
+//View By state
+console.log("searching with state");
+SearchCityOrState('TS');
