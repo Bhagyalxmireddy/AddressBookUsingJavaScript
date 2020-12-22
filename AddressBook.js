@@ -153,4 +153,15 @@ console.log("Counting The Number of persons in AddressBook");
 let count = contacts.reduce(((count) => {count +=1;return count;}),0);
 console.log("Number Of persons in adressBook is : " +count);
 
-
+//UC8 search persons by state and city
+function SearchCityOrState(cityOrState){
+    if(contacts.filter((p=>p.city==cityOrState)||(p=>p.state==cityOrState))){
+        console.log(contacts.toString());
+    }
+}
+//searching with city
+console.log("searching with city");
+SearchCityOrState('BNreddy');
+//searching with state
+console.log("searching with state");
+SearchCityOrState('TS');
