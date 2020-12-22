@@ -32,7 +32,7 @@ class Contact{
     
     get address(){return this._address;}
     set address(address){
-        let addRegex=RegExp("^[A-Z0-9]{4,}$");
+        let addRegex=RegExp("^[A-Z0-9a-z]{4,}$");
         if(addRegex.test(address)){
             this._address=address;
         }
@@ -53,11 +53,11 @@ class Contact{
 
     get state(){return this._state;}
     set state(state){
-        let stateRegex=RegExp("^[A-Za-z]{4,}$");
+        let stateRegex=RegExp("^[A-Za-z]{2,}$");
         if(stateRegex.test(state)){
             this._state=state;
         }else{
-            throw 'Invalid state'
+            throw 'Invalid state';
         }
     }
 
@@ -84,11 +84,27 @@ class Contact{
 
     get email(){return this._email;}
     set email(email){
-        let emailRegex="^[a-zA-Z0-9+_-]+(?:\\.[a-zA-Z0-9_-]+)*@[a-zA-Z0-9]+(?:\\.[a-zA-Z]{2,}){1,2}$";
-        if(emailRegex.test(email)){
+        let numberRegex=RegExp("^[a-zA-Z0-9+_-]+(?:\\.[a-zA-Z0-9_-]+)*@[a-zA-Z0-9]+(?:\\.[a-zA-Z]{2,}){1,2}$");
+        if(numberRegex.test(email)){
             this._email=email;
-        }else{
-            throw 'Invalid Email';
+        }
+        else{
+            throw 'Invalid email';
         }
     }
+    toString(){
+        return "FirstName:"+this.firstname+",Lastname:"+this.lastname+",Address:"+this.address+",City:"
+                +this.city+",State:"+this.state+",Zip:"+this.zip+",MobileNumber:"+this.phoneNumber+",Email:"
+                +this.email;
+    }
+
 }
+console.log("UC3 AddContacts");
+let contacts=new Array();
+function AddContacts(firstname,lastname,address,city,state,zip,phoneNumber,email){
+    let contact=new Contact(firstname,lastname,address,city,state,zip,phoneNumber,email);
+    contacts.push(contact);
+}
+AddContacts('BhagyaLaxm','Reddy','NagrKurnool','MBNR','TS','509215','8464096496','Bhagyalaxmi@gmail.com');
+AddContacts('Sravani','Sabbisetti','GandhiNagar','Vijayawada','AP','500004','9874102356','sravani@gmail.com');
+console.log(contacts.toString());
