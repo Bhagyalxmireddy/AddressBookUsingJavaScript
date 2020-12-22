@@ -102,9 +102,15 @@ class Contact{
 console.log("UC3 AddContacts");
 let contacts=new Array();
 function AddContacts(firstname,lastname,address,city,state,zip,phoneNumber,email){
+    //UC7 Check The duplication Person
+    if(contacts.some(x=> x.firstname == firstname)){
+        console.log("Person is already exists");
+        return;
+    }
     let contact=new Contact(firstname,lastname,address,city,state,zip,phoneNumber,email);
     contacts.push(contact);
 }
+AddContacts('BhagyaLaxm','Reddy','NagrKurnool','MBNR','TS','509215','8464096496','Bhagyalaxmi@gmail.com');
 AddContacts('BhagyaLaxm','Reddy','NagrKurnool','MBNR','TS','509215','8464096496','Bhagyalaxmi@gmail.com');
 AddContacts('Sravani','Sabbisetti','GandhiNagar','Vijayawada','AP','500004','9874102356','sravani@gmail.com');
 console.log(contacts.toString());
@@ -146,3 +152,5 @@ deleteContactByName('Sravani');
 console.log("Counting The Number of persons in AddressBook");
 let count = contacts.reduce(((count) => {count +=1;return count;}),0);
 console.log("Number Of persons in adressBook is : " +count);
+
+
